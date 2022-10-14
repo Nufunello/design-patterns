@@ -2,13 +2,11 @@ cmake_minimum_required(VERSION 3.2)
 
 project("Design Patterns" VERSION 1.0)
 
-#Factory method
-add_executable(factory_method "test/factory_method.cpp")
-set_target_properties(factory_method PROPERTIES OUTPUT_NAME "factory_method")
-target_include_directories(factory_method PUBLIC "include")
-set_property(TARGET factory_method PROPERTY CXX_STANDARD 23)
+set(design_patterns "factory_method" "abstract_factory")
 
-#undefined reference to `__imp_WSACleanup'
-if(WIN32)
-	target_link_libraries(factory_method wsock32 ws2_32)
-endif()
+foreach(design_pattern IN LISTS design_patterns)
+	add_executable("${design_pattern}" "test/${design_pattern}.cpp")
+	set_target_properties("${design_pattern}" PROPERTIES OUTPUT_NAME "${design_pattern}")
+	target_include_directories("${design_pattern}" PUBLIC "include")
+	set_property(TARGET "${design_pattern}" PROPERTY CXX_STANDARD 23)
+endforeach()
