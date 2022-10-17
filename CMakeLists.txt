@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.2)
 
 project("Design Patterns" VERSION 1.0)
 
-set(design_patterns "factory_method" "abstract_factory")
+set(design_patterns "factory_method" "abstract_factory" "builder")
 
 foreach(design_pattern IN LISTS design_patterns)
 	add_executable("${design_pattern}" "test/${design_pattern}.cpp")
