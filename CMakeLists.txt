@@ -11,7 +11,7 @@ foreach(design_pattern IN LISTS creational_design_patterns)
 	set_property(TARGET "${design_pattern}" PROPERTY CXX_STANDARD 23)
 endforeach()
 
-set(structural_design_patterns "adapter")
+set(structural_design_patterns "adapter" "decorator")
 
 foreach(design_pattern IN LISTS structural_design_patterns)
 	add_executable("${design_pattern}" "test/structural/${design_pattern}.cpp")
